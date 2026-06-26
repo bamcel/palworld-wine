@@ -19,6 +19,7 @@ wine_path() {
 
 STEAMCMD_EXE="${STEAMCMD_DIR}/steamcmd.exe"
 PAL_WIN64_DIR="${SERVER_DIR}/Pal/Binaries/Win64"
+PAL_PAKS_DIR="${SERVER_DIR}/Pal/Content/Paks"
 PAL_EXE="${PAL_EXE:-}"
 
 mkdir -p "${SERVER_DIR}" "${STEAMCMD_DIR}" "${MODS_DIR}" "${BACKUP_DIR}"
@@ -75,7 +76,7 @@ fi
 
 if is_true "${MODS_ENABLED}" && is_true "${MOD_OVERLAY_ON_BOOT}"; then
   log "Applying mod overlays from ${MODS_DIR}"
-  mkdir -p "${PAL_WIN64_DIR}" "${SERVER_DIR}/Pal/Content/Paks/~mods"
+  mkdir -p "${PAL_WIN64_DIR}" "${PAL_PAKS_DIR}"
 
   if [ -d "${MODS_DIR}/server-overlay" ]; then
     cp -a "${MODS_DIR}/server-overlay/." "${SERVER_DIR}/"
@@ -86,7 +87,7 @@ if is_true "${MODS_ENABLED}" && is_true "${MOD_OVERLAY_ON_BOOT}"; then
   fi
 
   if [ -d "${MODS_DIR}/paks" ]; then
-    cp -a "${MODS_DIR}/paks/." "${SERVER_DIR}/Pal/Content/Paks/~mods/"
+    cp -a "${MODS_DIR}/paks/." "${PAL_PAKS_DIR}/"
   fi
 fi
 

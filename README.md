@@ -41,8 +41,11 @@ mods/
     xinput1_3.dll
     UE4SS-settings.ini
     Mods/
-  paks/               # copied into Pal/Content/Paks/~mods
-    ExampleMod.pak
+  paks/               # copied into Pal/Content/Paks
+    ~mods/
+      ExampleMod.pak
+    LogicMods/
+      ExampleLogicMod.pak
   server-overlay/     # copied into the Palworld server root
     Pal/
 ```
