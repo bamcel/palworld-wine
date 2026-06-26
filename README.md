@@ -75,6 +75,7 @@ Palworld world settings are still managed in the normal game file under:
 ```text
 /palworld/server/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini
 ```
+
 ## Unraid
 
 Use the files in `compose_files/` with the Unraid Compose Manager plugin:
