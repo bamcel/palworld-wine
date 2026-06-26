@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>Palworld-Wine</Name>
+  <Name>palworld-wine</Name>
   <Repository>ghcr.io/bamcel/palworld-wine:latest</Repository>
   <Registry>https://github.com/bamcel/palworld-wine/pkgs/container/palworld-wine</Registry>
   <Network>bridge</Network>

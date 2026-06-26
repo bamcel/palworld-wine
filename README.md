@@ -101,6 +101,8 @@ You can also add this as a classic Unraid Docker template by adding this templat
 https://raw.githubusercontent.com/bamcel/palworld-wine/main/templates/palworld-wine.xml
 ```
 
+The Unraid container name comes from the template's top-level `Name` field and defaults to `palworld-wine`.
+
 ## Attribution
 
 This image is derived from the WINE-based Palworld container pattern in [`ripps818/palworld-wine`](https://github.com/ripps818/palworld-wine). See `NOTICE` for attribution notes.
