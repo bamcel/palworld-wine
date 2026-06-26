@@ -31,6 +31,10 @@ if [ "${SKIP_CHOWN:-false}" != "true" ]; then
   chown_if_writable "${MODS_DIR}"
 fi
 
-Xvfb "${DISPLAY}" -screen 0 1024x768x16 -nolisten tcp &
+if [ "${XVFB_LOG_STDOUT:-false}" = "true" ]; then
+  Xvfb "${DISPLAY}" -screen 0 1024x768x16 -nolisten tcp &
+else
+  Xvfb "${DISPLAY}" -screen 0 1024x768x16 -nolisten tcp >/tmp/xvfb.log 2>&1 &
+fi
 
 exec gosu "${PUID}:${PGID}" /usr/local/bin/start-palworld.sh "$@"

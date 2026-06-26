@@ -36,6 +36,7 @@
   <Config Name="Community Server" Target="COMMUNITY" Default="false" Description="Adds EpicApp=PalServer when true." Type="Variable" Display="advanced" Required="true" Mask="false">false</Config>
   <Config Name="Mods Enabled" Target="MODS_ENABLED" Default="true" Description="Enable mod handling." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
   <Config Name="Mod Overlay On Boot" Target="MOD_OVERLAY_ON_BOOT" Default="true" Description="Copy /mods overlays into the server folder before startup." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="Show Xvfb Logs" Target="XVFB_LOG_STDOUT" Default="false" Description="Show Xvfb keymap/display warnings in container logs. Usually leave disabled." Type="Variable" Display="advanced" Required="true" Mask="false">false</Config>
   <Config Name="Backups Enabled" Target="BACKUP_ENABLED" Default="true" Description="Run scheduled backups with supercronic." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
   <Config Name="Backup Cron" Target="BACKUP_CRON" Default="0 */6 * * *" Description="Cron schedule for backups." Type="Variable" Display="advanced" Required="true" Mask="false">0 */6 * * *</Config>
   <Config Name="Delete Old Backups" Target="DELETE_OLD_BACKUPS" Default="false" Description="Delete old palworld-*.tgz backups." Type="Variable" Display="advanced" Required="true" Mask="false">false</Config>

@@ -46,6 +46,7 @@ ENV PUID=99 \
     WINEPREFIX=/palworld/.wine \
     WINEARCH=win64 \
     WINEDEBUG=-all \
+    LIBGL_ALWAYS_SOFTWARE=1 \
     XDG_CACHE_HOME=/palworld/.cache \
     DISPLAY=:99 \
     STEAM_APP_ID=2394010 \
@@ -66,6 +67,7 @@ ENV PUID=99 \
     COMMUNITY=false \
     PORT=8211 \
     QUERY_PORT=27015 \
+    XVFB_LOG_STDOUT=false \
     EXTRA_ARGS=""
 
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
