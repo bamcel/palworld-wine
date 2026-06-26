@@ -1,0 +1,5 @@
+This project is based on the WINE-based Palworld server container approach from:
+
+  https://github.com/ripps818/palworld-wine
+
+The original project is licensed under the MIT License. This derivative keeps the same broad runtime idea while restructuring scripts, paths, mod overlay behavior, documentation, and GitHub publishing support.

@@ -1,0 +1,18 @@
+services:
+  palworld:
+    build: .
+    image: ghcr.io/YOUR_GITHUB_USERNAME/palworld-wine:latest
+    container_name: palworld-wine
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "8211:8211/udp"
+      - "27015:27015/udp"
+      - "25575:25575/tcp"
+    volumes:
+      - ./data/palworld:/palworld
+      - ./data/steamcmd:/steamcmd
+      - ./mods:/mods:ro
+      - ./data/backups:/backups
+    stop_grace_period: 2m

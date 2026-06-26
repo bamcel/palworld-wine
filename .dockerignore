@@ -1,0 +1,13 @@
+.git
+.github
+compose_files
+data
+palworld
+mods
+backups
+*.log
+*.tgz
+*.zip
+README.md
+LICENSE
+NOTICE

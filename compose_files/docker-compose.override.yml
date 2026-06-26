@@ -1,0 +1,7 @@
+services:
+  palworld:
+    labels:
+      net.unraid.docker.managed: 'composeman'
+      net.unraid.docker.icon: 'https://images.mein-mmo.de/medien/2024/01/Palworld-Early-Access-Trailer-Screenshot-drei-Pals.jpg'
+      net.unraid.docker.webui: ''
+      net.unraid.docker.shell: ''
