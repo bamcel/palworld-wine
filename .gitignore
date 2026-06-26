@@ -2,8 +2,6 @@
 compose_files/.env
 data/*
 !data/.gitkeep
-mods/*
-!mods/.gitkeep
 *.log
 *.tgz
 *.zip

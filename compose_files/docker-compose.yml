@@ -14,7 +14,6 @@ services:
     volumes:
       - /mnt/user/game_server/palworld/game:/palworld
       - /mnt/user/game_server/steamcmd:/steamcmd
-      - /mnt/user/game_server/palworld/mods:/mods:ro
       - /mnt/user/game_server/palworld/backups:/backups
     ports:
       - "8211:8211/udp"   # Game port

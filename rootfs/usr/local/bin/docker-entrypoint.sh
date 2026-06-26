@@ -12,7 +12,7 @@ if ! getent passwd "${PUID}" >/dev/null 2>&1; then
   useradd -K UID_MIN=0 --uid "${PUID}" --gid "${PGID}" --home-dir /palworld --shell /bin/bash palworld
 fi
 
-mkdir -p "${SERVER_DIR}" "${STEAMCMD_DIR}" "${MODS_DIR}" "${BACKUP_DIR}" "${WINEPREFIX}" "${XDG_CACHE_HOME}"
+mkdir -p "${SERVER_DIR}" "${STEAMCMD_DIR}" "${BACKUP_DIR}" "${WINEPREFIX}" "${XDG_CACHE_HOME}"
 
 chown_if_writable() {
   local path="${1:?path required}"
@@ -28,7 +28,6 @@ if [ "${SKIP_CHOWN:-false}" != "true" ]; then
   chown_if_writable /palworld
   chown_if_writable /steamcmd
   chown_if_writable /backups
-  chown_if_writable "${MODS_DIR}"
 fi
 
 if [ "${XVFB_LOG_STDOUT:-false}" = "true" ]; then

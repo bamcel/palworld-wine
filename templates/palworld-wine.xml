@@ -21,7 +21,6 @@
   <Requires/>
   <Config Name="Palworld Data" Target="/palworld" Default="/mnt/user/game_server/palworld/game" Mode="rw" Description="WINE prefix and installed Palworld server files." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/game_server/palworld/game</Config>
   <Config Name="SteamCMD Data" Target="/steamcmd" Default="/mnt/user/game_server/steamcmd" Mode="rw" Description="Windows SteamCMD files." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/game_server/steamcmd</Config>
-  <Config Name="Mods" Target="/mods" Default="/mnt/user/game_server/palworld/mods" Mode="ro" Description="Mod staging folder. Use paks for Pal/Content/Paks, win64 for Pal/Binaries/Win64, and server-overlay for the Palworld server root." Type="Path" Display="always" Required="false" Mask="false">/mnt/user/game_server/palworld/mods</Config>
   <Config Name="Backups" Target="/backups" Default="/mnt/user/game_server/palworld/backups" Mode="rw" Description="Scheduled backup output folder." Type="Path" Display="always" Required="false" Mask="false">/mnt/user/game_server/palworld/backups</Config>
   <Config Name="Game Port" Target="8211" Default="8211" Mode="udp" Description="Palworld game UDP port." Type="Port" Display="always" Required="true" Mask="false">8211</Config>
   <Config Name="Query Port" Target="27015" Default="27015" Mode="udp" Description="Steam query UDP port." Type="Port" Display="always" Required="false" Mask="false">27015</Config>
@@ -36,8 +35,6 @@
   <Config Name="Multithreading" Target="MULTITHREADING" Default="true" Description="Enable Palworld dedicated-server threading flags." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
   <Config Name="Community Server" Target="COMMUNITY" Default="false" Description="Adds EpicApp=PalServer when true." Type="Variable" Display="advanced" Required="true" Mask="false">false</Config>
   <Config Name="Palworld Executable" Target="PAL_EXE" Default="" Description="Optional override for the Windows Palworld executable path. Leave blank to auto-detect PalServer.exe." Type="Variable" Display="advanced" Required="false" Mask="false"/>
-  <Config Name="Mods Enabled" Target="MODS_ENABLED" Default="true" Description="Enable mod handling." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
-  <Config Name="Mod Overlay On Boot" Target="MOD_OVERLAY_ON_BOOT" Default="true" Description="Copy /mods overlays into the server folder before startup." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
   <Config Name="Show Xvfb Logs" Target="XVFB_LOG_STDOUT" Default="false" Description="Show Xvfb keymap/display warnings in container logs. Usually leave disabled." Type="Variable" Display="advanced" Required="true" Mask="false">false</Config>
   <Config Name="Backups Enabled" Target="BACKUP_ENABLED" Default="true" Description="Run scheduled backups with supercronic." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
   <Config Name="Backup Cron" Target="BACKUP_CRON" Default="0 */6 * * *" Description="Cron schedule for backups." Type="Variable" Display="advanced" Required="true" Mask="false">0 */6 * * *</Config>

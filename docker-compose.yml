@@ -13,6 +13,5 @@ services:
     volumes:
       - ./data/palworld:/palworld
       - ./data/steamcmd:/steamcmd
-      - ./mods:/mods:ro
       - ./data/backups:/backups
     stop_grace_period: 2m

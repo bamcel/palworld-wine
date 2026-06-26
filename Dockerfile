@@ -53,7 +53,6 @@ ENV PUID=99 \
     SERVER_DIR=/palworld/server \
     PAL_EXE= \
     STEAMCMD_DIR=/steamcmd \
-    MODS_DIR=/mods \
     BACKUP_DIR=/backups \
     UPDATE_ON_BOOT=true \
     VALIDATE_ON_UPDATE=true \
@@ -63,8 +62,6 @@ ENV PUID=99 \
     BACKUP_CRON="0 */6 * * *" \
     DELETE_OLD_BACKUPS=false \
     OLD_BACKUP_DAYS=30 \
-    MODS_ENABLED=true \
-    MOD_OVERLAY_ON_BOOT=true \
     MULTITHREADING=true \
     COMMUNITY=false \
     PORT=8211 \
@@ -83,10 +80,10 @@ RUN chmod +x \
         /usr/local/bin/start-palworld.sh \
         /usr/local/bin/backup-palworld.sh \
         /usr/local/bin/healthcheck-palworld.sh \
-    && mkdir -p /palworld /steamcmd /mods /backups
+    && mkdir -p /palworld /steamcmd /backups
 
 EXPOSE 8211/udp 27015/udp 25575/tcp
-VOLUME ["/palworld", "/steamcmd", "/mods", "/backups"]
+VOLUME ["/palworld", "/steamcmd", "/backups"]
 
 HEALTHCHECK --interval=60s --timeout=10s --start-period=10m --retries=3 CMD ["/usr/local/bin/healthcheck-palworld.sh"]
 ENTRYPOINT ["/usr/local/bin/tini", "--", "/usr/local/bin/docker-entrypoint.sh"]

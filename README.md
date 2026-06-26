@@ -5,7 +5,7 @@ A Palworld dedicated server image that runs the Windows server under WINE so you
 ## Features
 
 - Windows SteamCMD and Palworld server running under WINE.
-- Persistent `/palworld`, `/steamcmd`, `/mods`, and `/backups` mounts.
+- Persistent `/palworld`, `/steamcmd`, and `/backups` mounts.
 - Unraid-friendly `PUID` / `PGID` ownership.
 - Boot-time install/update with optional Steam validation.
 - Common mod overlay folders for UE4SS, Win64 files, and pak mods.
@@ -28,29 +28,34 @@ The first boot can take a while because the image initializes WINE, installs the
 | --- | --- |
 | `/palworld` | WINE prefix and installed Palworld server |
 | `/steamcmd` | Windows SteamCMD files |
-| `/mods` | Read-only mod staging folder |
 | `/backups` | Scheduled backup output |
 
 ## Mod Layout
 
-Place mods on the host under `./mods` using one or more of these folders:
+The Palworld install is persisted under `/palworld`, so you can place mods directly into the game folder after the first server install completes.
+
+On Unraid, the default host path is:
 
 ```text
-mods/
-  win64/              # copied into Pal/Binaries/Win64
+/mnt/user/game_server/palworld/game/server
+```
+
+Common mod locations:
+
+```text
+Pal/Binaries/Win64/
     xinput1_3.dll
     UE4SS-settings.ini
     Mods/
-  paks/               # copied into Pal/Content/Paks
+
+Pal/Content/Paks/
     ~mods/
       ExampleMod.pak
     LogicMods/
       ExampleLogicMod.pak
-  server-overlay/     # copied into the Palworld server root
-    Pal/
 ```
 
-This keeps downloaded mod files outside the image and makes them easy to update on Unraid.
+After adding or changing mods, restart the container.
 
 ## Environment
 
@@ -68,8 +73,6 @@ This keeps downloaded mod files outside the image and makes them easy to update 
 | `COMMUNITY` | `false` | Adds `EpicApp=PalServer` |
 | `PAL_EXE` | empty | Optional executable override; defaults to auto-detecting `PalServer.exe` |
 | `EXTRA_ARGS` | empty | Extra PalServer command-line args |
-| `MODS_ENABLED` | `true` | Enables mod handling |
-| `MOD_OVERLAY_ON_BOOT` | `true` | Copies `/mods` overlays before startup |
 | `BACKUP_ENABLED` | `true` | Starts scheduled backups |
 | `BACKUP_CRON` | `0 */6 * * *` | Backup schedule |
 | `DELETE_OLD_BACKUPS` | `false` | Delete old `palworld-*.tgz` backups |
@@ -93,7 +96,6 @@ Suggested Unraid paths:
 
 ```text
 /mnt/user/game_server/palworld/game    -> /palworld
-/mnt/user/game_server/palworld/mods    -> /mods
 /mnt/user/game_server/palworld/backups -> /backups
 /mnt/user/game_server/steamcmd         -> /steamcmd
 ```
