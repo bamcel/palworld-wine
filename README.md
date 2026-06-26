@@ -58,6 +58,7 @@ This keeps downloaded mod files outside the image and makes them easy to update 
 | `UPDATE_ON_BOOT` | `true` | Install/update Palworld on startup |
 | `VALIDATE_ON_UPDATE` | `true` | Run Steam validation during update |
 | `WINETRICKS_ON_BOOT` | `true` | Install/update `vcrun2022` |
+| `FORCE_WINETRICKS` | `false` | Reinstall `vcrun2022` even if a prepared-prefix marker exists |
 | `PORT` | `8211` | Palworld game UDP port |
 | `QUERY_PORT` | `27015` | Steam query UDP port |
 | `MULTITHREADING` | `true` | Adds Palworld dedicated-server threading flags |

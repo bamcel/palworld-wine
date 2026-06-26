@@ -36,10 +36,17 @@ if [ ! -f "${STEAMCMD_EXE}" ]; then
   rm -f "${STEAMCMD_DIR}/steamcmd.zip"
 fi
 
+WINETRICKS_MARKER="${WINEPREFIX}/.vcrun2022-installed"
+
 if is_true "${WINETRICKS_ON_BOOT}"; then
-  log "Installing/updating Visual C++ runtime with winetricks"
-  winetricks --optout -f -q vcrun2022
-  wineserver -w
+  if [ ! -f "${WINETRICKS_MARKER}" ] || is_true "${FORCE_WINETRICKS:-false}"; then
+    log "Installing/updating Visual C++ runtime with winetricks"
+    winetricks --optout -f -q vcrun2022
+    wineserver -w
+    date -u +%Y-%m-%dT%H:%M:%SZ > "${WINETRICKS_MARKER}"
+  else
+    log "Visual C++ runtime already installed; set FORCE_WINETRICKS=true to reinstall"
+  fi
 fi
 
 if is_true "${BACKUP_ENABLED}"; then

@@ -58,6 +58,7 @@ ENV PUID=99 \
     UPDATE_ON_BOOT=true \
     VALIDATE_ON_UPDATE=true \
     WINETRICKS_ON_BOOT=true \
+    FORCE_WINETRICKS=false \
     BACKUP_ENABLED=true \
     BACKUP_CRON="0 */6 * * *" \
     DELETE_OLD_BACKUPS=false \
