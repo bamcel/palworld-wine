@@ -75,21 +75,6 @@ Palworld world settings are still managed in the normal game file under:
 ```text
 /palworld/server/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini
 ```
-
-## Publish To GitHub Container Registry
-
-1. Create a GitHub repository.
-2. Push this project to GitHub.
-3. The included workflow publishes:
-
-```text
-ghcr.io/<owner>/<repo>:latest
-ghcr.io/<owner>/<repo>:<branch-or-tag>
-ghcr.io/<owner>/<repo>:<sha>
-```
-
-GitHub Packages may require you to make the package public before Unraid can pull it without authentication.
-
 ## Unraid
 
 Use the files in `compose_files/` with the Unraid Compose Manager plugin:
