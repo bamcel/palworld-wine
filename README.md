@@ -95,6 +95,12 @@ Suggested Unraid paths:
 
 Copy `compose_files/.env.example` to `compose_files/.env` before starting the Unraid stack.
 
+You can also add this as a classic Unraid Docker template by adding this template URL:
+
+```text
+https://raw.githubusercontent.com/bamcel/palworld-wine/main/templates/palworld-wine.xml
+```
+
 ## Attribution
 
 This image is derived from the WINE-based Palworld container pattern in [`ripps818/palworld-wine`](https://github.com/ripps818/palworld-wine). See `NOTICE` for attribution notes.

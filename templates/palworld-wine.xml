@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Palworld-Wine</Name>
+  <Repository>ghcr.io/bamcel/palworld-wine:latest</Repository>
+  <Registry>https://github.com/bamcel/palworld-wine/pkgs/container/palworld-wine</Registry>
+  <Network>bridge</Network>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/bamcel/palworld-wine/issues</Support>
+  <Project>https://github.com/bamcel/palworld-wine</Project>
+  <Overview>Palworld dedicated server running the Windows server under WINE for Windows-only mod support. Includes SteamCMD install/update, mod overlay folders, scheduled backups, and Unraid-friendly PUID/PGID permissions.</Overview>
+  <Category>GameServers:</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/bamcel/palworld-wine/main/templates/palworld-wine.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/bamcel/palworld-wine/main/assets/palworld.jpg</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Palworld Data" Target="/palworld" Default="/mnt/user/game_server/palworld/game" Mode="rw" Description="WINE prefix and installed Palworld server files." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/game_server/palworld/game</Config>
+  <Config Name="SteamCMD Data" Target="/steamcmd" Default="/mnt/user/game_server/steamcmd" Mode="rw" Description="Windows SteamCMD files." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/game_server/steamcmd</Config>
+  <Config Name="Mods" Target="/mods" Default="/mnt/user/game_server/palworld/mods" Mode="ro" Description="Mod staging folder. Use paks, win64, and server-overlay subfolders." Type="Path" Display="always" Required="false" Mask="false">/mnt/user/game_server/palworld/mods</Config>
+  <Config Name="Backups" Target="/backups" Default="/mnt/user/game_server/palworld/backups" Mode="rw" Description="Scheduled backup output folder." Type="Path" Display="always" Required="false" Mask="false">/mnt/user/game_server/palworld/backups</Config>
+  <Config Name="Game Port" Target="8211" Default="8211" Mode="udp" Description="Palworld game UDP port." Type="Port" Display="always" Required="true" Mask="false">8211</Config>
+  <Config Name="Query Port" Target="27015" Default="27015" Mode="udp" Description="Steam query UDP port." Type="Port" Display="always" Required="false" Mask="false">27015</Config>
+  <Config Name="RCON Port" Target="25575" Default="25575" Mode="tcp" Description="RCON TCP port. Enable RCON in PalWorldSettings.ini before using it." Type="Port" Display="always" Required="false" Mask="false">25575</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Description="Container user ID. Unraid default is 99." Type="Variable" Display="always" Required="true" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Description="Container group ID. Unraid default is 100." Type="Variable" Display="always" Required="true" Mask="false">100</Config>
+  <Config Name="Timezone" Target="TZ" Default="America/Los_Angeles" Description="Container timezone." Type="Variable" Display="always" Required="true" Mask="false">America/Los_Angeles</Config>
+  <Config Name="Update On Boot" Target="UPDATE_ON_BOOT" Default="true" Description="Install or update the Palworld dedicated server when the container starts." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="Validate On Update" Target="VALIDATE_ON_UPDATE" Default="true" Description="Run Steam validation during updates." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="Winetricks On Boot" Target="WINETRICKS_ON_BOOT" Default="true" Description="Install/update the Visual C++ runtime with winetricks when the container starts." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="Multithreading" Target="MULTITHREADING" Default="true" Description="Enable Palworld dedicated-server threading flags." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="Community Server" Target="COMMUNITY" Default="false" Description="Adds EpicApp=PalServer when true." Type="Variable" Display="advanced" Required="true" Mask="false">false</Config>
+  <Config Name="Mods Enabled" Target="MODS_ENABLED" Default="true" Description="Enable mod handling." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="Mod Overlay On Boot" Target="MOD_OVERLAY_ON_BOOT" Default="true" Description="Copy /mods overlays into the server folder before startup." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="Backups Enabled" Target="BACKUP_ENABLED" Default="true" Description="Run scheduled backups with supercronic." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="Backup Cron" Target="BACKUP_CRON" Default="0 */6 * * *" Description="Cron schedule for backups." Type="Variable" Display="advanced" Required="true" Mask="false">0 */6 * * *</Config>
+  <Config Name="Delete Old Backups" Target="DELETE_OLD_BACKUPS" Default="false" Description="Delete old palworld-*.tgz backups." Type="Variable" Display="advanced" Required="true" Mask="false">false</Config>
+  <Config Name="Old Backup Days" Target="OLD_BACKUP_DAYS" Default="30" Description="Backup retention age in days when old backup deletion is enabled." Type="Variable" Display="advanced" Required="true" Mask="false">30</Config>
+  <Config Name="Extra Args" Target="EXTRA_ARGS" Default="" Description="Extra PalServer command-line arguments." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>
