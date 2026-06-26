@@ -4,7 +4,7 @@ networks:
 
 services:
   palworld:
-    image: ghcr.io/YOUR_GITHUB_USERNAME/palworld-wine:latest
+    image: ghcr.io/bamcel/palworld-wine:latest
     container_name: palworld
     restart: unless-stopped
     env_file:

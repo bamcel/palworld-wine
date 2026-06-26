@@ -79,9 +79,8 @@ Palworld world settings are still managed in the normal game file under:
 ## Publish To GitHub Container Registry
 
 1. Create a GitHub repository.
-2. Replace `YOUR_GITHUB_USERNAME` in `docker-compose.yml` and `compose_files/docker-compose.yml`.
-3. Push this project to GitHub.
-4. The included workflow publishes:
+2. Push this project to GitHub.
+3. The included workflow publishes:
 
 ```text
 ghcr.io/<owner>/<repo>:latest
@@ -93,10 +92,10 @@ GitHub Packages may require you to make the package public before Unraid can pul
 
 ## Unraid
 
-Use the files in `compose_files/` with the Unraid Compose Manager plugin. Edit the image name first:
+Use the files in `compose_files/` with the Unraid Compose Manager plugin:
 
 ```yaml
-image: ghcr.io/YOUR_GITHUB_USERNAME/palworld-wine:latest
+image: ghcr.io/bamcel/palworld-wine:latest
 ```
 
 Suggested Unraid paths:
