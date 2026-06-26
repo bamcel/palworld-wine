@@ -19,7 +19,7 @@ wine_path() {
 
 STEAMCMD_EXE="${STEAMCMD_DIR}/steamcmd.exe"
 PAL_WIN64_DIR="${SERVER_DIR}/Pal/Binaries/Win64"
-PAL_EXE="${PAL_WIN64_DIR}/PalServer-Win64-Test-Cmd.exe"
+PAL_EXE="${PAL_EXE:-}"
 
 mkdir -p "${SERVER_DIR}" "${STEAMCMD_DIR}" "${MODS_DIR}" "${BACKUP_DIR}"
 
@@ -83,8 +83,31 @@ if is_true "${MODS_ENABLED}" && is_true "${MOD_OVERLAY_ON_BOOT}"; then
   fi
 fi
 
-if [ ! -f "${PAL_EXE}" ]; then
-  echo "Palworld server executable not found at ${PAL_EXE}."
+if [ -z "${PAL_EXE}" ]; then
+  for candidate in \
+    "${SERVER_DIR}/PalServer.exe" \
+    "${PAL_WIN64_DIR}/PalServer-Win64-Test-Cmd.exe" \
+    "${PAL_WIN64_DIR}/PalServer-Win64-Shipping-Cmd.exe" \
+    "${PAL_WIN64_DIR}/PalServer-Win64-Shipping.exe"
+  do
+    if [ -f "${candidate}" ]; then
+      PAL_EXE="${candidate}"
+      break
+    fi
+  done
+fi
+
+if [ -z "${PAL_EXE}" ] || [ ! -f "${PAL_EXE}" ]; then
+  echo "Palworld server executable not found."
+  echo "Checked:"
+  echo "  ${SERVER_DIR}/PalServer.exe"
+  echo "  ${PAL_WIN64_DIR}/PalServer-Win64-Test-Cmd.exe"
+  echo "  ${PAL_WIN64_DIR}/PalServer-Win64-Shipping-Cmd.exe"
+  echo "  ${PAL_WIN64_DIR}/PalServer-Win64-Shipping.exe"
+  echo
+  echo "Installed files under ${SERVER_DIR}:"
+  find "${SERVER_DIR}" -maxdepth 4 -type f \( -iname 'PalServer*.exe' -o -iname 'Pal*.exe' \) -print | sort || true
+  echo
   echo "Start with UPDATE_ON_BOOT=true so SteamCMD can install the server."
   exit 1
 fi

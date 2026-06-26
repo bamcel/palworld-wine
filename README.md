@@ -62,6 +62,7 @@ This keeps downloaded mod files outside the image and makes them easy to update 
 | `QUERY_PORT` | `27015` | Steam query UDP port |
 | `MULTITHREADING` | `true` | Adds Palworld dedicated-server threading flags |
 | `COMMUNITY` | `false` | Adds `EpicApp=PalServer` |
+| `PAL_EXE` | empty | Optional executable override; defaults to auto-detecting `PalServer.exe` |
 | `EXTRA_ARGS` | empty | Extra PalServer command-line args |
 | `MODS_ENABLED` | `true` | Enables mod handling |
 | `MOD_OVERLAY_ON_BOOT` | `true` | Copies `/mods` overlays before startup |

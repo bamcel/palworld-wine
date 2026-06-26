@@ -51,6 +51,7 @@ ENV PUID=99 \
     DISPLAY=:99 \
     STEAM_APP_ID=2394010 \
     SERVER_DIR=/palworld/server \
+    PAL_EXE= \
     STEAMCMD_DIR=/steamcmd \
     MODS_DIR=/mods \
     BACKUP_DIR=/backups \
