@@ -21,7 +21,7 @@
   <Requires/>
   <Config Name="Palworld Data" Target="/palworld" Default="/mnt/user/game_server/palworld/game" Mode="rw" Description="WINE prefix and installed Palworld server files." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/game_server/palworld/game</Config>
   <Config Name="SteamCMD Data" Target="/steamcmd" Default="/mnt/user/game_server/steamcmd" Mode="rw" Description="Windows SteamCMD files." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/game_server/steamcmd</Config>
-  <Config Name="Mods" Target="/mods" Default="/mnt/user/game_server/palworld/mods" Mode="ro" Description="Mod staging folder. Use paks, win64, and server-overlay subfolders." Type="Path" Display="always" Required="false" Mask="false">/mnt/user/game_server/palworld/mods</Config>
+  <Config Name="Mods" Target="/mods" Default="/mnt/user/game_server/palworld/mods" Mode="ro" Description="Mod staging folder. Use paks for Pal/Content/Paks, win64 for Pal/Binaries/Win64, and server-overlay for the Palworld server root." Type="Path" Display="always" Required="false" Mask="false">/mnt/user/game_server/palworld/mods</Config>
   <Config Name="Backups" Target="/backups" Default="/mnt/user/game_server/palworld/backups" Mode="rw" Description="Scheduled backup output folder." Type="Path" Display="always" Required="false" Mask="false">/mnt/user/game_server/palworld/backups</Config>
   <Config Name="Game Port" Target="8211" Default="8211" Mode="udp" Description="Palworld game UDP port." Type="Port" Display="always" Required="true" Mask="false">8211</Config>
   <Config Name="Query Port" Target="27015" Default="27015" Mode="udp" Description="Steam query UDP port." Type="Port" Display="always" Required="false" Mask="false">27015</Config>
