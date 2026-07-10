@@ -85,5 +85,5 @@ RUN chmod +x \
 EXPOSE 8211/udp 27015/udp 25575/tcp
 VOLUME ["/palworld", "/steamcmd", "/backups"]
 
-HEALTHCHECK --interval=60s --timeout=10s --start-period=10m --retries=3 CMD ["/usr/local/bin/healthcheck-palworld.sh"]
+HEALTHCHECK --interval=60s --timeout=10s --start-period=20m --retries=3 CMD ["/usr/local/bin/healthcheck-palworld.sh"]
 ENTRYPOINT ["/usr/local/bin/tini", "--", "/usr/local/bin/docker-entrypoint.sh"]

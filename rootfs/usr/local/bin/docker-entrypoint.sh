@@ -17,11 +17,18 @@ mkdir -p "${SERVER_DIR}" "${STEAMCMD_DIR}" "${BACKUP_DIR}" "${WINEPREFIX}" "${XD
 chown_if_writable() {
   local path="${1:?path required}"
 
-  if [ -w "${path}" ]; then
-    chown -R "${PUID}:${PGID}" "${path}"
-  else
+  if [ ! -w "${path}" ]; then
     echo "Skipping ownership update for read-only path: ${path}"
+    return
   fi
+
+  local owner
+  owner="$(stat -c '%u:%g' "${path}")"
+  if [ "${owner}" = "${PUID}:${PGID}" ]; then
+    return
+  fi
+
+  chown -R "${PUID}:${PGID}" "${path}"
 }
 
 if [ "${SKIP_CHOWN:-false}" != "true" ]; then
