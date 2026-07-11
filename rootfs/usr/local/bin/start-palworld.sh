@@ -125,21 +125,8 @@ if [ -n "${EXTRA_ARGS:-}" ]; then
   start_args+=("${extra_args[@]}")
 fi
 
-container_hostname="$(cat /etc/hostname 2>/dev/null || true)"
-container_ip=""
-if [ -n "${container_hostname}" ]; then
-  while read -r hosts_ip hosts_name _; do
-    if [ "${hosts_name}" = "${container_hostname}" ]; then
-      container_ip="${hosts_ip}"
-      break
-    fi
-  done < /etc/hosts
-fi
-
 log "Starting Palworld server"
-if [ -n "${container_ip}" ]; then
-  log "Container IP: ${container_ip}:${PORT:-8211} -- if using Docker port mapping (e.g. Unraid bridge networking), connect using this host's IP address on port ${PORT:-8211} instead."
-fi
+log "This container's internal Docker network address is NOT reachable by players. Connect using this Docker host's LAN IP (or your forwarded/public IP for external players) on port ${PORT:-8211}."
 printf '%q ' "${start_args[@]}"
 printf '\n'
 exec "${start_args[@]}"
