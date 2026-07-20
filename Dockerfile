@@ -48,6 +48,7 @@ ENV PUID=99 \
     WINEDEBUG=-all \
     LIBGL_ALWAYS_SOFTWARE=1 \
     XDG_CACHE_HOME=/palworld/.cache \
+    XDG_RUNTIME_DIR=/tmp/xdg-runtime \
     DISPLAY=:99 \
     STEAM_APP_ID=2394010 \
     SERVER_DIR=/palworld/server \

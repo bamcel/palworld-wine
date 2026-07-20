@@ -12,7 +12,9 @@ if ! getent passwd "${PUID}" >/dev/null 2>&1; then
   useradd -K UID_MIN=0 --uid "${PUID}" --gid "${PGID}" --home-dir /palworld --shell /bin/bash palworld
 fi
 
-mkdir -p "${SERVER_DIR}" "${STEAMCMD_DIR}" "${BACKUP_DIR}" "${WINEPREFIX}" "${XDG_CACHE_HOME}"
+mkdir -p "${SERVER_DIR}" "${STEAMCMD_DIR}" "${BACKUP_DIR}" "${WINEPREFIX}" "${XDG_CACHE_HOME}" "${XDG_RUNTIME_DIR}"
+chmod 0700 "${XDG_RUNTIME_DIR}"
+chown "${PUID}:${PGID}" "${XDG_RUNTIME_DIR}"
 
 chown_if_writable() {
   local path="${1:?path required}"
